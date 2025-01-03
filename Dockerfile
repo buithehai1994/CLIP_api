@@ -1,17 +1,17 @@
-# Use Python 3.9-slim as the base image
+# Use the official Python image as a base
 FROM python:3.9-slim
 
-# Set the working directory inside the container
+# Set the working directory
 WORKDIR /
 
-# Copy requirements.txt from the root directory to the container
-COPY requirements.txt ./
+# Copy the project files
+COPY 
 
-# Install the dependencies
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose the port the app runs on
+# Expose the port the app will run on
 EXPOSE 8000
 
-# Command to run FastAPI
-CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
+# Command to run the API service
+CMD ["clip-api-service", "serve", "--model-name", "ViT-B-32:openai"]
